@@ -1,0 +1,36 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Capture keys',{
+        category: 'Keyboard',
+        color: '#ff00ff',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "keyboard.png",
+        label: function() {
+            return this.name||"Capture keys";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="Capture keys">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+
+<script type="text/html" data-help-name="Capture keys">
+    <p>Simple node to catch key strokes on your keyboard and mouse.</p><br>
+<p>Input: messages with <code>msg.topic</code> set to <i>"state"</i> with <code>msg.payload</code> <i>true/false</i> [boolean] are used to control
+scanning of keyboard strokes and mouse clicks. Other messages are discarded.</p><br>
+<p>Output: <code>msg.topic</code> is either <i>"keyboard"</i> or <i>"mouse"</i> following by
+<code>msg.payload</code> typeof number with number of keystroke or number of button clicked on mouse.</p><br>
+<p>When the control message is recieved, node sends message about changed state if command is correct with <code>msg.topic</code> <i>"info"</i>.</p><br> 
+<p>
+<b>Copyright Bc. Jan Janovský</b><br>
+Faculty of Mechanical Engineering<br>
+Czech Technical University in Prague</p>
+</script>
